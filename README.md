@@ -9,7 +9,7 @@ It does not require an Anthropic API key.
 ## What is in this folder
 
 - `claude-ollama.cmd`: Windows launcher for starting Claude Code with Ollama
-- `src/`: Claude Code source files that were already in this folder
+- `src/`: Claude Code source files
 
 ## Current default model
 
@@ -95,8 +95,6 @@ if "%CLAUDE_OLLAMA_MODEL%"=="" set "CLAUDE_OLLAMA_MODEL=qwen3:4b"
 
 - Regular Ollama chat can work even when Claude Code feels much slower.
 - Claude Code sends a much larger prompt than a simple chat request.
-- On this machine, larger models were very slow on CPU.
-- GPU mode initially caused Ollama runner crashes with the NVIDIA MX450 on Ollama `0.17.4`.
 
 ## CPU-only fallback
 
