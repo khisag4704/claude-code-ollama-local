@@ -1,6 +1,6 @@
 # Claude Code + Ollama Local Setup
 
-![Demo](assets/demo.png)
+![Demo](assets/Img.png)
 
 This folder is set up to run Claude Code locally through Ollama.
 
